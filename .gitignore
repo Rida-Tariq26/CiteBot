@@ -1,0 +1,58 @@
+# ========================
+# Environment & Secrets
+# ========================
+.env
+.env.local
+.env.*.local
+
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# ========================
+# Node / Frontend
+# ========================
+node_modules/
+frontend/dist/
+
+# ========================
+# Database & Storage
+# ========================
+*.db
+*.sqlite
+*.sqlite3
+backend/storage/vector_store.json
+
+# ========================
+# IDE & Editor
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ========================
+# Docker
+# ========================
+docker-compose.override.yml
+
+# ========================
+# OS
+# ========================
+*.log
+*.tmp

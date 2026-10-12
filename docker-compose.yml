@@ -1,0 +1,26 @@
+services:
+  citebot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: citebot-app
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_NAME=CiteBot
+      - APP_ENV=production
+      - LLM_PROVIDER=openai # "openai" or "mock"
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_MODEL=gpt-4o-mini
+      - ADMIN_API_KEY=${ADMIN_API_KEY:-citebot-admin-secret-key-change-me}
+      - DEFAULT_CLIENT_NAME="Acme Corporation Knowledge Base"
+      - DEFAULT_ACCENT_COLOR="#2563EB"
+      - DEFAULT_CONFIDENCE_THRESHOLD=0.45
+    volumes:
+      - citebot-storage:/app/backend/storage
+      - citebot-db:/app/backend
+
+volumes:
+  citebot-storage:
+  citebot-db:
